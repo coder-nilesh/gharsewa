@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load bootstrap %}}
+{% block title %}
+<title>Login</title>
+{% endblock %}
+{% block main_content %}
+<div class="login-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center register-login-head-text">Login</h1>
+                {% include 'messages.html' %}
+                <div class="card register-login-card py-4 px-4">
+                    <form class="form myForm" action="" method="POST">
+                        {% csrf_token %}
+                        {{ form_login | bootstrap_horizontal }}
+                        <button type="submit" class="btn btn-primary text-bold mt-3 "style="width:100%; font-weight:800;">LOGIN</button>
+                        <p class="mt-4 text-center">Not Registered? <a href="/register" class="btn btn-success btn-sm" >Register Now</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder="Enter username"
+    form_fields[2].placeholder="Enter password"
+
+// <!--to add a class ('(space)classname')-->
+    for (field in form_fields){
+    form_fields[field].className +=' my-3'
+    }
+
+</script>
+{% endblock %}

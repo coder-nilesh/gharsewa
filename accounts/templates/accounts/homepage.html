@@ -1,0 +1,179 @@
+{% extends 'layout.html' %} {% load static %} {% block title %}
+<title>Homepage</title>
+{% endblock title %} {% block main_content %}
+<section class="hero-section">
+  <div class="hero-image" data-aos="zoom-out-right" data-aos-delay="50">
+    <img src="{% static 'images/hero-image.png' %}" alt="" />
+  </div>
+  <div class="hero-textarea">
+    <p
+      class="hero-text wow bounceInUp"
+      data-aos="zoom-out-left"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-id="super-duper"
+    >
+      Get professional service at your doorstep
+    </p>
+    <div class="hero-textarea-btns">
+      {% if user.is_authenticated %}
+      <a class="book-now-btn btn-orange {{activate_services}}" href="/services/show_categories">Book Now</a>
+      {% else %}
+      <a href="/services/show_categories" class="book-now-btn btn-orange">Book Now</a>
+      <a href="/register" class="join-us-btn btn-orange {{activate_register}}">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<section class="services-carousel">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="3"
+        aria-label="Slide 4"
+      ></button>
+    </div>
+    <div class="carousel-inner my-3">
+      <div class="carousel-item active">
+        <img src="{% static 'images/carousel-image1.jpg' %}" class="d-block w-100" alt="..." />
+      </div>
+
+      <div class="carousel-item">
+        <img src="{% static 'images/carousel-image2.jpg' %}" class="d-block w-100" alt="..." />
+      </div>
+
+      <div class="carousel-item">
+        <img src="{% static 'images/carousel-image3.jpg' %}" class="d-block w-100" alt="..." />
+      </div>
+
+      <div class="carousel-item">
+        <img src="{% static 'images/carousel-image4.jpg' %}" class="d-block w-100" alt="..." />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<section class="service-showcase-section" id="services">
+  <h3 class="service-showcase-text">Our Services</h3>
+  <div class="service-showcase">
+    {% for i in categories %}
+    <div
+      class="wrapper mb-5"
+      data-aos="fade-up"
+      data-aos-offset="200"
+      data-aos-delay="50"
+      data-aos-easing="ease-in-out"
+    >
+      <div class="thecard service-card">
+        <div class="thefront">
+          <img src="/{{i.image}}" alt="" />
+          <p class="card-label">{{ i.category_name}}</p>
+        </div>
+        <div class="theback p-3">
+          <p class="services-desc-home">{{ i.description }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="text-center">
+    <a href="/services/show_categories" class="text-center book-now-btn btn-orange">Book Services</a>
+  </div>
+</section>
+
+<section class="about-us-section" id="about">
+  <h3 class="about-us-head-text">About Us</h3>
+  <div class="about-us-details">
+    <div class="about-us-img" data-aos="zoom-in-right" data-aos-delay="150" data-aos-easing="ease-in-out">
+      <img src="{% static 'images/about-us-img.png' %}" alt="" />
+    </div>
+    <div class="about-us-text">
+      gharsewA is a in-home service providing website of Nepal. It provices various types of services such as Cleaning,
+      Repair, Maintenance, Plumbing, Grooming, Beauty procedures etc. at customer's doorstep. The team of Professionals
+      in each of the category of services are highly skilled and are able to provide first-class service to the
+      customers. gharsewA is currently active in Kathmandu Valley, with future plans to expand to other cities of Nepal.
+    </div>
+  </div>
+</section>
+
+<section class="team-section mt-5 p-1" id="team">
+  <div class="team-text-div">
+    <span style="display: block; font-weight: 700">Our Professionals</span>
+    <span style="display: block">We hire skilled professionals from all over Nepal</span>
+    <span style="display: block">Get first-class service experience from our team of professionals</span>
+  </div>
+  <div class="team-image" data-aos="fade-left" data-aos-delay="500" data-aos-easing="ease-in-out">
+    <div class="img1 image">
+      <img src="{% static 'images/team-img1.png' %}" alt="" />
+    </div>
+    <div class="img2 image">
+      <div class="img2-div">
+        <img class="img-2" src="{% static 'images/team-img2.png' %}" alt="" />
+      </div>
+      <div class="img3-div">
+        <img class="img3" src="{% static 'images/team-img3.png' %}" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-section p-1" id="clients">
+  <div class="customer">
+    <div class="customer-image">
+      <img src="{% static 'images/customer-img.png' %}" alt="" />
+    </div>
+    <div class="customer-text">
+      <span>HS Shrestha</span>
+      <span style="display: block">Sundarijal,Kathmandu</span>
+    </div>
+  </div>
+
+  <div class="testimonial-text-div my-2">
+    <span>
+      “Fast and outstanding service. Gharsewa understand their customer’s needs. They have an active and skilled team of
+      professionals.”
+    </span>
+  </div>
+</section>
+<section class="map-section" data-aos="fade-up" data-aos-delay="50" data-aos-easing="ease-in-out">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3847688569494!2d85.32448051501535!3d27.705403982792692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a77f1ab301%3A0xb213d09ebce4b3da!2sDillibazar!5e0!3m2!1sen!2snp!4v1631807262016!5m2!1sen!2snp"
+    width="100%"
+    height="300"
+    style="border: 0"
+    allowfullscreen=""
+    loading="lazy"
+  ></iframe>
+</section>
+
+{% endblock main_content %}

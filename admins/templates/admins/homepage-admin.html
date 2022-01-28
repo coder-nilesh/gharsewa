@@ -1,0 +1,40 @@
+{% extends 'layout-admin.html' %}
+{% load static %}
+{% block title %}
+<title>Admin-Dashboard</title>
+{% endblock %}
+{% block main_content %}
+
+<div class="admin-panel-container">
+    <h3 class="panel-title">
+        Dashboard
+    </h3>
+    {% include 'messages.html' %}
+    <div class="dashboard-section">
+        <div class="dashboard-card">
+            <p class="icon users-icon"><i class="fas fa-users"></i></p>
+            <a href="/admins/view_users"><h1 class="card-count text-center">{{user}}</h1>
+            </a>
+            <p class="card-heading text-center">Users</p>
+        </div>
+        <div class="dashboard-card">
+            <p class="icon admins-icon"><i class="fas fa-users-cog"></i></p>
+            <a href="/admins/view_admins"><h1 class="card-count text-center">{{admin}}</h1>
+            </a>
+            <p class="card-heading text-center">Admins</p>
+        </div>
+        <div class="dashboard-card">
+            <p class="icon services-icon"><i class="fas fa-tools"></i></p>
+            <a href="/services/get_service"><h1 class="card-count text-center">{{service}}</h1>
+            </a>
+            <p class="card-heading text-center">Services</p>
+        </div>
+        <div class="dashboard-card">
+            <p class="icon appointments-icon"><i class="fas fa-address-book"></i></p>
+            <a href="/services/get_appointment"><h1 class="card-count text-center">{{appointment}}</h1>
+            </a>
+            <p class="card-heading text-center">Appointments</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+<div class="header-section">
+    <a href="/"><h2 id="logo">gharsewA</h2></a>
+    <div class="hamburger-btn">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <nav class="nav-bar">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#team">Our Team</a></li>
+            <li><a class="{{activate_services}}" href="/services/show_categories">Our Services</a></li>
+            {% if user.is_authenticated %}
+            <li class="user-profile-link"><img class="user-profile-image" src="/{{request.user.profile.profile_pic}}"
+                                               alt=""><a class="" href="#">{{request.user.username}} <i
+                    class="user-options-icon fa fa-caret-down"></i></a>
+                <div class="user-options">
+                    <ul class="user-options-list">
+                        <li><a class="{{activate_profile}}" href="/profile">Profile</a></li>
+                        <li><a class="{{activate_my_wishlist}}" href="/users/my_wishlist">Wishlist</a></li>
+                        <li><a class="{{activate_my_appointment}}" href="/users/my_appointment">Appointments</a></li>
+                    </ul>
+                </div>
+            </li>
+            <a class="nav-logout-btn btn-transparent-orange" href="/logout">Logout</a>
+            {% else %}
+            <a class="nav-login-btn btn-transparent-orange  {{activate_login}}" href="/login">Login</a>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
