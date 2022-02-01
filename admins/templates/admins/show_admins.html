@@ -1,0 +1,46 @@
+{% extends 'layout-admin.html' %} {% load bootstrap %} {% block title %}
+<title>All Admins</title>
+{% endblock %} {% block main_content %}
+<h1 class="text-center heading-text">Admins</h1>
+<div class="container mb-5 mt-5" style="min-height: 100vh">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      {% include 'messages.html' %}
+      <div class="card shadow outer-card py-4 px-4">
+        <div class="card card-body">
+          <form action="" class="form myForm filter-form" method="get">
+            {{ admin_filter.form | bootstrap_horizontal }}
+            <button type="submit" class="btn btn-primary btn-md mt-3 filter-search-btn">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </form>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+            {% for i in admins %}
+            <tr>
+              <td class="text-center">{{ i.username }}</td>
+              <td class="text-center">{{ i.email }}</td>
+              <td class="text-center">
+                <a
+                  class="btn btn-danger btn-sm mb-2"
+                  href="/admins/demote/{{i.id}}"
+                  onclick="return confirm('Are you sure you want to demote this admin?')"
+                  ><i class="fas fa-user-minus"></i> Demote to user</a
+                >
+                &nbsp;
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
