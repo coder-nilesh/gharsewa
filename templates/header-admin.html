@@ -1,0 +1,23 @@
+<a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+    <i class="admin-menu-btn fas fa-bars"></i>
+</a>
+
+<div class="offcanvas offcanvas-start offcanvas-design" tabindex="-1" id="offcanvasExample"
+     aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title admin-menu-logo" id="offcanvasExampleLabel">GharsewA</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-unstyled">
+            <li><a class="dropdown-item {{activate_dashboard}}" href="/admins"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a class="dropdown-item {{activate_category}}" href="/services/get_category"><i class="fas fa-list"></i> Categories</a></li>
+            <li><a class="dropdown-item {{activate_service}}" href="/services/get_service"><i class="fas fa-tools"></i> Services</a></li>
+            <li><a class="dropdown-item {{activate_appointment}}" href="/services/get_appointment"><i class="fas fa-address-book"></i> Appointments</a></li>
+            <li><a class="dropdown-item {{activate_users}}" href="/admins/view_users"><i class="fas fa-users"></i> Users</a></li>
+            <li><a class="dropdown-item {{activate_admins}}" href="/admins/view_admins"><i class="fas fa-users-cog"></i> Admins</a></li>
+            <li><a class="dropdown-item {{activate_settings}}" href="/password_change_admin"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+</div>
