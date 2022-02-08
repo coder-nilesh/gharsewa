@@ -1,0 +1,47 @@
+{% extends 'layout-admin.html' %}
+{% load bootstrap %}
+{% block title %}
+<title>Update Service</title>
+{% endblock %}
+{% block main_content %}
+<div class="service">
+    <h1 class="text-center heading-text">Update Service</h1>
+    <div class="container mb-5 mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+                {% include 'messages.html' %}
+                <div class="card form-box-shadow py-4 px-4">
+                    <form class="form myForm" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form_service | bootstrap_horizontal }}
+                        <button type="submit" class="btn btn-primary mt-3 ">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    var form_fields2 = document.getElementsByTagName('textarea')
+    var form_fields3 = document.getElementsByTagName('select')
+    form_fields[1].placeholder="Enter service name"
+    form_fields[2].placeholder= "Enter session time"
+    form_fields[4].placeholder= "Enter session cost"
+    form_fields2[0].placeholder="Enter description"
+
+    for (field in form_fields){
+    form_fields[field].className +=' my-3'
+    }
+
+     for (field in form_fields2){
+    form_fields2[field].className +=' my-3'
+    }
+
+       for (field in form_fields3){
+    form_fields3[field].className +=' my-3'
+    }
+</script>
+{% endblock %}

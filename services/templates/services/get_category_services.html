@@ -1,0 +1,30 @@
+{% extends 'layout-admin.html' %}
+{% block title %}
+<title>Category services</title>
+{% endblock title %}
+{% block main_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center text-uppercase mb-5  font-weight-bold">All services of
+                {{category.category_name}}</h1>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                {% for i in category.service_set.all %}
+                <div class="col-md-3 mb-3">
+                    <div class="card shadow-lg">
+                        <img class="card-img-top" src="/{{i.image}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Service: {{i.service_name}}</h5>
+                            <p class="card-text">Description: {{i.service_description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

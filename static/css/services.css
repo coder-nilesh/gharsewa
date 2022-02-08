@@ -1,0 +1,231 @@
+.category-showcase-section {
+  padding: 20px;
+}
+.category-container {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+.category-showcase-text {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  color: rgb(0, 0, 0);
+}
+.category-showcase {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 950px;
+  margin: 0 auto;
+}
+.category-card {
+  max-height: 300px;
+  max-width: 250px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  position: relative;
+  transition: 0.2s;
+}
+.category-card-label {
+  font-size: var(--font-sm);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: var(--color-white);
+}
+.category-card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  filter: brightness(80%);
+}
+.category-card:hover {
+  transform: scale(1.05);
+}
+.service-container {
+  min-height: 100vh;
+}
+.search-div {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+#search-input {
+  padding: 5px;
+}
+.service-list-card {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  position: relative;
+  border-radius: 3px;
+  min-width: 360px;
+  height: 150px;
+  background-color: white;
+}
+.card-inner-container{
+    display: flex;
+}
+.service-list-card p {
+  margin: 1px;
+}
+.card-div1 {
+  max-width: 200px;
+  height: 135px;
+}
+.card-details {
+  margin-left: 5px;
+  min-width:135px;
+}
+.card-div1 img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.service-name {
+  font-size: 1rem;
+  color: #fd5825;
+  font-weight: 800;
+}
+
+.actions-div{
+    float: right;
+}
+ .add-btn , .delete-btn{
+     display: block;
+
+
+}
+.session {
+  color: #a5a1a1;
+  font-size: 12px;
+}
+.service-cost {
+  font-weight: 700;
+}
+
+.service-desc {
+  color: #a5a1a1;
+  font-size: 12px;
+}
+
+.status{
+    color:#a5a1a1;
+}
+span.status-text{
+    font-weight: 800;
+}
+
+
+.appointment-container{
+    min-height:100vh;
+}
+
+.appointment-list-card{
+    max-width: 800px;
+    display: flex;
+
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+    border-radius: 12px;
+    min-width: 360px;
+    max-height: 550px;
+    background-color: #2C394B;
+
+}
+.appointment-list-card p{
+    margin-bottom: 12px;
+}
+.card-image-div{
+    max-width: 100%;
+    height: 295px;
+}
+
+
+.card-image-div img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.app-service-cost{
+    color:#fd5825 ;
+}
+
+.details-title{
+    color: #C0C0C0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.app-service-desc, .app-session-time, .app-service-address, .app-service-contact, .app-service-date{
+    color: white;
+    font-size: 14px;
+}
+
+@media (max-width:500px){
+    .appointment-list-card{
+        flex-direction: column;
+    }
+}
+
+
+/* FEEDBACK-CONTAINER */
+
+.feedback-container{
+       max-width: 800px;
+    margin: 0 auto;
+}
+
+.feedback-list-card{
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+
+}
+ .user-profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 55px;
+    display: inline-block;
+    margin-right:5px;
+    object-fit: cover;
+}
+
+.feedback-text{
+
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background-color: rgb(247, 247, 247);
+    font-size: 14px;
+    color: rgb(133, 133, 133);
+    font-weight: 700;
+
+}
+
+.feedback-info{
+    font-size: 14px;
+    color:  rgb(133, 133, 133);
+}
+
+.user-name{
+    color:#70a352;
+    font-weight: 800;
+    font-size: 1rem;
+}
+.rating-no{
+    color: rgb(255, 68, 0);
+    font-weight: 700;
+}
+
