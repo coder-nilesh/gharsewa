@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load bootstrap %}
+{% block title %}
+<title>Profile</title>
+{% endblock%}
+{% block main_content %}
+<div class="outer-container pb-5">
+    <div class="profile-container pt-5 ">
+        <h1 class="head-text text-center mb-4" data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000">Your Profile</h1>
+        <div class="message">{% include 'messages.html' %}</div>
+        <div class="profile-card p-3 pt-5 pb-5" data-aos="flip-left" data-aos-delay="250" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
+            <img src=" /{{request.user.profile.profile_pic}} ">
+            <div class="card-info ">
+                <div class="py-2">Firstname<span class="user-data">{{request.user.profile.firstname}}</span></div>
+                <div class="py-2">Lastname : <span class="user-data">{{request.user.profile.lastname}}</span></div>
+                <div class="py-2">Email : <span class="user-data">{{request.user.profile.email}}</span></div>
+                <div class="py-2">Phone : <span class="user-data">{{request.user.profile.phone}}</span></div>
+                <div class="py-2">Address : <span class="user-data">{{request.user.profile.address}}</span></div>
+            </div>
+        </div>
+        <div class="profile-buttons text-center mt-5">
+            <a class="text-center btn-lg btn btn-primary mb-2" href="/update_profile">Update Profile</a>
+            <a class="text-center btn-lg btn btn-danger mb-2" href="/password_change_user">Change Password</a></div>
+    </div>
+</div>
+{% endblock %}
+
+
