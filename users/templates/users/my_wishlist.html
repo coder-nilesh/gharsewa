@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block title %}
+{% load static %}
+<title>My wishlist</title>
+{% endblock title %}
+{% block main_content %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+<h1 class="head-text text-center mt-5 mb-5" data-aos="fade-down"  data-aos-delay="50"
+    data-aos-duration="1000">My wishlist</h1>
+<div class="service-container">
+     <div class="message">{% include 'messages.html' %}</div>
+    <div class="service-list p-1" id="service-list">
+        {% for i in wishlist_services %}
+        <div class="service-list-card mb-4 p-2" data-aos="zoom-out"  data-aos-delay="150"
+    data-aos-duration="1000">
+            <div class="card-inner-container">
+                 <div class="card-div1">
+                <img src="/{{i.service.image}}"
+                     alt="">
+            </div>
+            <div class="card-details">
+                <p class="service-name">{{i.service.service_name}}</p>
+                <p class="session">{{i.service.session_time}}min</p>
+                <p class="service-cost text-success">Rs.{{i.service.session_cost}}</p>
+                <p class="service-desc">{{i.service.service_description}}</p>
+                <p class="service-desc">{{i.service.added_date}}</p>
+
+            </div>
+            </div>
+
+            <div class="actions-div">
+
+                <a href="/users/appointment_form/{{i.service.id}}/{{i.id}}"
+                   onclick="return confirm('Are you sure you want to book this service ?')"
+                   class="btn btn-sm btn-primary add-btn mb-2">Book</a>
+                <a href="/users/remove_wishlist_service/{{i.id}}"
+                   onclick="return confirm('Are you sure you want to delete this service to wishlist?')"
+                   class="btn btn-sm btn-danger delete-btn">Remove</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
