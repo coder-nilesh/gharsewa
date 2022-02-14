@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+<title>Services</title>
+{% endblock title %}
+{% block main_content %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+<div class="category-container">
+<section class="category-showcase-section" id="services">
+    <h3 class="category-showcase-text" data-aos="flip-down"  data-aos-delay="50"
+    data-aos-duration="1000">Select Category</h3>
+    <div class="category-showcase">
+        {% for i in categories %}
+        <a href="/services/show_category_services/{{i.id}}" data-aos="fade-up"  data-aos-delay="50"
+    data-aos-duration="1000" >
+            <div class="category-card">
+                <img src="/{{i.image}}" alt="">
+                <p class="category-card-label">{{i.category_name}}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+</div>
+{% endblock main_content %}
+
+
+
+

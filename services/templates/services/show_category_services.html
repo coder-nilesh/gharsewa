@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% block title %}
+{% load static %}
+<title>Category services</title>
+{% endblock title %}
+{% block main_content %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">
+<h1 class="head-text text-center  mt-5 mb-5" data-aos="fade-down"
+    data-aos-duration="500">{{category.category_name}} Services</h1>
+<div class="service-container">
+      <div class="message">{% include 'messages.html' %}</div>
+    <div class="search-div mb-5">
+        <input type="text" id="search-input" placeholder="search">
+        <button class="btn btn-primary service-search-btn " type="button">Search</button>
+    </div>
+    <div class="service-list p-1" id="service-list" style="min-height:60vh;">
+        {% for i in category.service_set.all %}
+        <div class="service-list-card mb-4 p-2" data-aos="fade-right"  data-aos-delay="150"
+    data-aos-duration="1000">
+            <div class="card-inner-container">
+                <div class="card-div1">
+                    <img src="/{{i.image}}"
+                         alt="">
+                </div>
+                <div class="card-details">
+                    <p class="service-name">{{i.service_name}}</p>
+                    <p class="session">{{i.session_time}}min</p>
+                    <p class="service-cost text-success">Rs.{{i.session_cost}}</p>
+                    <p class="service-desc">{{i.service_description}}</p>
+
+                </div>
+            </div>
+            <div class="actions-div">
+                <a href="/users/add_to_wishlist/{{i.id}}/{{category.id}}"
+                   onclick="return confirm('Are you sure you want to add this service to wishlist?')"
+                   class="btn btn-sm btn-primary add-btn">Add</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class=" feedback-container p-2 mt-5 mb-5" >
+        <h2 class="head-text text-center mt-5 mb-5" data-aos="fade-down"  data-aos-delay="50"
+    data-aos-duration="500">Feedbacks</h2>
+
+        <div class="feedback-btn-div text-center mb-4">
+            <a href="/users/post_feedback/{{category.id}}" class="btn btn-primary ">Post Feedback</a>
+        </div>
+        <div class="feedback-list p-2">
+            {% for i in feedbacks %}
+            <div class="feedback-list-card  mb-5" data-aos="flip-up"  data-aos-delay="350"
+    data-aos-duration="500">
+                <img class="user-profile-img"
+                     src="/{{i.user.profile.profile_pic}}"
+                     alt="">
+                <div class="user-details">
+                    <div class="feedback-info mb-2">
+                        <span class="user-name">{{i.user.username}}</span> {{i.added_date}} <br>
+                        Rating: <span class="rating-no">{{i.rating}}</span> /10
+                    </div>
+                    <div class="feedback-text p-3">
+                        {{i.feedback}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

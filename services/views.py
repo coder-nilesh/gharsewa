@@ -189,3 +189,25 @@ def update_appointment_status(request, appointment_id):
     appointment.save()
     messages.add_message(request, messages.SUCCESS, 'Status changed to Completed')
     return redirect('/services/get_appointment')
+
+
+# This function renders categories page on the user side.
+def show_categories(request):
+    categories = Category.objects.all().order_by('-id')
+    context = {
+        'categories': categories,
+        'activate_services': 'active'
+    }
+    return render(request, 'services/show_categories.html', context)
+
+
+# This function renders the services of a selected category on the user side.
+def show_category_services(request, category_id):
+    category = Category.objects.get(id=category_id)
+    feedback = Feedback.objects.filter(category=category)
+    context = {
+        'category': category,
+        'activate_services': 'active',
+        'feedbacks': feedback
+    }
+    return render(request, 'services/show_category_services.html', context)

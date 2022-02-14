@@ -15,4 +15,9 @@ urlpatterns = [
 
     path('get_appointment', views.get_appointment, name='get_appointment'),
     path('delete_appointment/<int:appointment_id>', views.delete_appointment),
-    path('update_appointment_status/<int:appointment_id>', views.update_appointment_status)
+    path('update_appointment_status/<int:appointment_id>', views.update_appointment_status),
+
+    path('show_categories', views.show_categories, name="show_categories"),
+    path('show_category_services/<int:category_id>', views.show_category_services),
+
+    ]
