@@ -1,0 +1,45 @@
+{% extends 'layout.html' %} {% block title %} {% load static %}
+<title>My Appointments</title>
+{% endblock title %} {% block main_content %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}" />
+<h1 class="head-text text-center mt-5 mb-5" data-aos="fade-down">My Appointments</h1>
+<div class="message">{% include 'messages.html' %}</div>
+<div class="appointment-container" id="service-list">
+  <div class="appointment-list mb-4 p-2">
+    {% for i in appointments %}
+    <div class="appointment-list-card mb-4 p-2" data-aos="zoom-in" data-aos-delay="150" data-aos-duration="1000">
+      <div class="card-image-div">
+        <img src="/{{i.service.image}}" />
+      </div>
+      <div class="app-details p-2">
+        <p class="service-name">{{i.service.service_name}}</p>
+        <p class="details-title">Session Time: <span class="app-session-time">{{i.session_time}} min</span></p>
+        <p class="details-title">Total Cost: <span class="app-service-cost">Rs. {{i.total_cost}}</span></p>
+        <p class="details-title">
+          Description:
+          <span class="app-service-desc"> {{i.service.service_description}} </span>
+        </p>
+        <p class="details-title">
+          Contact:
+          <span class="app-service-contact">{{i.contact_no}}</span>
+        </p>
+        <p class="details-title">
+          Address:
+          <span class="app-service-address">{{i.address}}</span>
+        </p>
+        <p class="details-title">
+          Date:
+          <span class="app-service-date">{{i.date}}</span>
+        </p>
+        {% if i.status == "Pending" %}
+        <p class="details-title">Status: <span class="status-text text-warning">{{i.status}}</span></p>
+        {% else %}
+        <p class="details-title">Status: <span class="status-text" style="color: #05fc2e">{{i.status}}</span></p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load bootstrap %}
+{% block title %}
+{% load static %}
+<title>Service Feedback</title>
+{% endblock title %}
+{% block main_content %}
+<div class="feedback-form">
+    <h1 class="text-center head-text mt-5" data-aos="fade-down" data-aos-delay="50"
+    data-aos-duration="500" >Post Feedback</h1>
+    <div class="container mb-5 mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                {% include 'messages.html' %}
+                <div class="card form-box-shadow py-4 px-4" data-aos="fade-up"
+    data-aos-duration="500" data-aos-delay="150">
+                    <form class="form myForm" action="" method="POST">
+                        {% csrf_token %}
+                        {{ form_feedback | bootstrap_horizontal }}
+                        <button type="submit" class="btn btn-primary mt-3 ">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder="Enter rating"
+
+
+    var form_fields2 = document.getElementsByTagName('textarea')
+    form_fields2[0].placeholder="Enter feedback"
+    for (field in form_fields){
+    form_fields[field].className +=' my-3'
+    }
+    for (field2 in form_fields2){
+    form_fields2[field2].className +=' my-3'
+    }
+
+
+
+</script>
+{% endblock %}
