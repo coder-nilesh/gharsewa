@@ -95,3 +95,60 @@ def update_profile(request):
         'activate_profile': 'active'
     }
     return render(request, 'accounts/update_profile.html', context)
+
+
+
+
+
+@login_required
+@user_only
+# This function render the profile page of the user..
+def profile(request):
+    profile = request.user.profile
+    context = {
+        'form': ProfileForm(instance=profile),
+        'activate_profile': 'active'
+    }
+    return render(request, 'accounts/profile.html', context)
+
+
+@login_required
+@admin_only
+# This function allows admins to change their profile picture.
+def password_change_admin(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.add_message(request, messages.SUCCESS, "Password changed successfully")
+            return redirect('/admins')
+        else:
+            messages.add_message(request, messages.ERROR, "Please verify the form fields")
+            return render(request, 'accounts/password_change_admin.html', {'password_change_form': form})
+
+    context = {
+        'password_change_form': PasswordChangeForm(request.user)
+    }
+    return render(request, 'accounts/password_change_admin.html', context)
+
+
+@login_required
+@user_only
+# This function allows users to change their password.
+def password_change_user(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.add_message(request, messages.SUCCESS, "Password changed successfully")
+            return redirect('/profile')
+        else:
+            messages.add_message(request, messages.ERROR, "Please verify the form fields")
+            return render(request, 'accounts/password_change_user.html', {'password_change_form': form})
+
+    context = {
+        'password_change_form': PasswordChangeForm(request.user)
+    }
+    return render(request, 'accounts/password_change_user.html', context)
