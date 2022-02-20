@@ -26,7 +26,6 @@ class TestForms(SimpleTestCase):
             'contact_no':'9840026546',
             'address':'lokanthali Bhaktapur',
 
-
         })      
         self.assertTrue(form.is_valid())
 
