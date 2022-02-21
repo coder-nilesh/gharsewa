@@ -69,13 +69,16 @@ $ python manage.py test app_name
 <table>
 
    <tr>
-    <td><img src='image-readme/home.png' alt="Home Page"  height='350' width='600'> </td>
+    <td><img src='static/readme images/admin dashboard.jpg' height='350' width='600'> </td>
    </tr>
   <tr>
-    <td><img src='image-readme/user.png' alt="User Panel" height='350' width='600'></td>
+    <td><img src='static/readme images/home page readme.jpg' width='600'></td>
   </tr>
   <tr>
-    <td><img src='image-readme/admin.png' alt="Admin Panel" height='350' width='600'></td>
+    <td><img src='static/readme images/login readme.jpg' width='600'></td>
+  </tr>
+ <tr>
+    <td><img src='static/readme images/register readme.jpg' width='600'></td>
   </tr>
   
   
